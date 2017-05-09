@@ -1,0 +1,12 @@
+﻿<div *ngIf="item">
+
+    <div class="row">
+        <div class="alert alert-warning">
+            <p>Do you really want to delete this recipe?</p>
+            <p> {{item.name}} - {{item.comments}}</p>
+        </div>
+    </div>
+    <button (click)="deleteRecipe()" class="btn btn-danger">Yes</button>
+    <a routerLink="/recipes" class="btn btn-default">No</a>
+
+</div>

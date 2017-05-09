@@ -1,0 +1,24 @@
+﻿<div class="badge badge-info">
+    <h4>Edit Recipe Step</h4>
+</div>
+<div *ngIf="item" class="card-text">
+    <form (ngSubmit)="editRecipeStep()">
+        <div class="row">
+            <div class="col-xl-6 form-group">
+                <label for="stepNo">Step No.</label>
+                <input [(ngModel)]="item.stepNo" name="stepNo" type="text" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-6 form-group">
+                <label for="instructions">Instructions</label>
+                <input [(ngModel)]="item.instructions" name="instructions" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row m-2">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a routerLink="/recipes" class="btn btn-default">Cancel</a>
+        </div>
+    </form>
+</div>

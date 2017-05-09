@@ -1,0 +1,39 @@
+﻿<div>
+    <a routerLink="/recipes/add" class="btn breadcrumb m-2">create a new recipe</a>
+    <div *ngFor="let recipe of items">
+        <div class="btn-group tab-pane mb-2">
+            <button class="btn-info pull-left" (click)="Expand(recipe)"><h5>{{recipe.name}} - {{recipe.comments}}</h5></button>
+        </div>
+        <div class="btn-group">
+            <a routerLink="/recipes/edit/{{recipe.id}}" class="breadcrumb-item">edit</a>
+            <a routerLink="/recipes/delete/{{recipe.id}}" class="breadcrumb-item">delete</a>
+        </div>
+        <div *ngIf="recipe.show">
+            <a routerLink="/recipes/addStep/{{recipe.id}}" class="btn breadcrumb m-2">create a new step</a>
+            <div *ngFor="let step of recipe.recipeSteps">
+                <div class="row ml-2">
+                    <div class="breadcrumb ml-2">
+                        <span>step {{step.stepNo}} : {{step.instructions}}</span>
+                    </div>
+                    <div class="btn-group m-2">
+                        <a routerLink="/recipes/editStep/{{step.id}}" class="breadcrumb-item">edit</a>
+                        <a routerLink="/recipes/deleteStep/{{step.id}}" class="breadcrumb-item">delete</a>
+                    </div>
+                </div>
+                <a routerLink="/recipes/addItem/{{step.id}}" class="btn breadcrumb ml-4">create a new item</a>
+                <div *ngFor="let item of step.recipeItems">
+                    <div class="row ml-4">
+                        <div class="card-text ml-4">
+                            <p> {{item.name}}  {{item.quantity}} {{item.measurementUnit}}</p>
+                        </div>
+                        <div class="btn-group ml-2">
+                            <a routerLink="/recipes/editItem/{{item.id}}" class="breadcrumb-item">edit</a>
+                            <a routerLink="/recipes/deleteItem/{{item.id}}" class="breadcrumb-item">delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,29 @@
+﻿<div class="badge badge-info">
+    <h4>Add a new recipe Item</h4>
+</div>
+<div *ngIf="item" class="container-fluid">
+    <form (ngSubmit)="addRecipeItem()">
+        <div class="row">
+            <div class="col-xl-6 form-group">
+                <label for="name">Name</label>
+                <input [(ngModel)]="item.name" name="name" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 form-group">
+                <label for="quantity">Quantity</label>
+                <input [(ngModel)]="item.quantity" name="quantity" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 form-group">
+                <label for="measurementUnit">Measurement Unit</label>
+                <input [(ngModel)]="item.measurementUnit" name="measurementUnit" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row m-2">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="/" class="btn btn-default">Cancel</a>
+        </div>
+    </form>
+</div>
